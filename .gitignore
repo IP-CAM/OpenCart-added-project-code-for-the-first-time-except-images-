@@ -1,3 +1,8 @@
+image/
+/catalog/view/theme/default/image/
+/catalog/view/theme/white_eighteen/image/
+/admin/view/image/
+
 # Compiled source #
 ###################
 *.com
@@ -35,3 +40,6 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.jpg
+*.png
+*.ttf
