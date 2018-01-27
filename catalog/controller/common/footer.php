@@ -16,6 +16,9 @@ class ControllerCommonFooter extends Controller {
 			}
 		}
 
+		$data['terms'] = $this->url->link('information/information', 'language=' . $this->config->get('config_language') . '&information_id=5');
+
+		$data['about'] = $this->url->link('information/information', 'language=' . $this->config->get('config_language') . '&information_id=4');
 		$data['contact'] = $this->url->link('information/contact', 'language=' . $this->config->get('config_language'));
 		$data['return'] = $this->url->link('account/return/add', 'language=' . $this->config->get('config_language'));
 		$data['sitemap'] = $this->url->link('information/sitemap', 'language=' . $this->config->get('config_language'));
