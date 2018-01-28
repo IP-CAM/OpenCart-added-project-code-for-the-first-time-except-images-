@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="c-content-title-1">
+    <h3 class="c-font-uppercase c-center c-font-bold">{{ heading_title }}</h3>
+    <div class="c-line-center c-theme-bg"></div>
+  </div>
+  <div class="row">
+    {% for product in products %}
+      <div class="col-md-3 col-sm-6 c-margin-b-20">
+        <div class="c-content-product-2 c-bg-white">
+          <div class="c-content-overlay">
+            <div class="c-label c-bg-red c-font-uppercase c-font-white c-font-13 c-font-bold">Sale</div>
+            <div class="c-label c-label-right c-theme-bg c-font-uppercase c-font-white c-font-13 c-font-bold">New</div>
+            <div class="c-overlay-wrapper">
+              <div class="c-overlay-content">
+                <a href="{{ product.href }}" class="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">Explore</a>
+              </div>
+            </div>
+            <div class="c-bg-img-center c-overlay-object" data-height="height" style="height: 330px; background-image: url({{ product.thumb }});"></div>
+          </div>
+          <div class="c-info">
+            <p class="c-title c-font-18 c-font-slim">{{ product.name }}</p>
+            {% if product.price %}
+              <p class="c-price c-font-16 c-font-slim">
+                {% if not product.special %}
+                  {{ product.price }}
+                {% else %}
+                  <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+                {% endif %}
+                {% if product.tax %}
+                  <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+                {% endif %}
+              </p>
+            {% endif %}
+          </div>
+          <div class="btn-group btn-group-justified" role="group">
+            <div class="btn-group c-border-top" role="group">
+              <a onclick="wishlist.add('{{ product.product_id }}');" class="btn btn-lg c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">Wishlist</a>
+            </div>
+            <div class="btn-group c-border-left c-border-top" role="group" >
+              <a onclick="cart.add('{{ product.product_id }}');" class="btn btn-lg c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  {% endfor %}
+    </div>
+</div>

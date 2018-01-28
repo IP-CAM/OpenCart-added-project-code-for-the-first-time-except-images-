@@ -229,26 +229,19 @@
                         <nav class="c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-theme c-fonts-uppercase c-fonts-bold">
                             <ul class="nav navbar-nav c-theme-nav">
                                 <li>
-                                    <a href="javascript:;" class="c-link dropdown-toggle">Home
+                                    <a href="{{home}}" class="c-link dropdown-toggle">Home
                                         <span class="c-arrow c-toggler"></span>
                                     </a>
-                                </li>
-                                <li class="c-active c-menu-type-classic">
-                                    <a href="javascript:;" class="c-link dropdown-toggle">Features
-                                        <span class="c-arrow c-toggler"></span>
-                                    </a>                                    
                                 </li>
                                 <li>
                                     <a href="javascript:;" class="c-link dropdown-toggle">Pages
                                         <span class="c-arrow c-toggler"></span>
-                                    </a>
-                                    
+                                    </a>                                    
                                 </li>
                                 <li>
                                     <a href="javascript:;" class="c-link dropdown-toggle">Shop
                                         <span class="c-arrow c-toggler"></span>
                                     </a>
-                                    
                                 </li>
                                 <li>
                                     <a href="javascript:;" class="c-link dropdown-toggle">Components
@@ -261,15 +254,46 @@
                                     </a>
                                 </li>
                                 <li class="c-cart-toggler-wrapper">
-                                    <a href="#" class="c-btn-icon c-cart-toggler">
+                                    <a href="{{ shopping_cart }}" class="c-btn-icon c-cart-toggler">
                                         <i class="icon-handbag c-cart-icon"></i>
                                         <span class="c-cart-number c-theme-bg">2</span>
                                     </a>
                                 </li>
+                                {% if logged %}
+                                <li class="c-active c-menu-type-classic">
+                                    <a href="javascript:;" class="c-link dropdown-toggle">
+                                      {{text_account}}
+                                        <span class="c-arrow c-toggler"></span>
+                                    </a>
+                                    <ul class="dropdown-menu c-menu-type-classic c-pull-left">
+                                      <li class="dropdown-submenu">
+                                        <a href="{{account}}">{{text_account}}
+                                                <span class="c-arrow c-toggler"></span>
+                                        </a>
+                                      </li>
+                                      <li class="dropdown-submenu">
+                                        <a href="{{ order }}">{{ text_order }}
+                                                <span class="c-arrow c-toggler"></span>
+                                        </a>
+                                      </li>
+                                       <li class="dropdown-submenu">
+                                        <a href="{{ transaction }}}">{{ text_transaction }}
+                                                <span class="c-arrow c-toggler"></span>
+                                        </a>
+                                      </li>
+                                        <li class="dropdown-submenu">
+                                        <a href="{{ logout }}}">{{ text_logout }}
+                                                <span class="c-arrow c-toggler"></span>
+                                        </a>
+                                      </li>
+                                    </ul>                                    
+                                </li>
+                                {% else %}
                                 <li>
                                     <a href="{{ login }}" class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-white c-btn-circle c-btn-uppercase c-btn-sbold">
                                         <i class="icon-user"></i> Sign In</a>
                                 </li>
+                                {% endif %}
                                 <li class="c-quick-sidebar-toggler-wrapper">
                                     <a href="#" class="c-quick-sidebar-toggler">
                                         <span class="c-line"></span>
@@ -326,5 +350,8 @@
                 </div>
             </div>
 </header>
+
+<body class="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-fullscreen">
+
 
                                                  
